@@ -1,0 +1,21 @@
+{
+  "name": "horology-core",
+  "version": "0.0.1",
+  "description": "Date/time calculations",
+  "main": "horology.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/horology-core.js.git"
+  },
+  "keywords": [
+    "javascript",
+    "time",
+    "date",
+    "calculation"
+  ],
+  "author": "Paul Schifferer",
+  "license": "MIT"
+}
