@@ -1,0 +1,88 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - develop
+    paths:
+      - src/**
+      - package.json
+      - .node-version
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  id-token: write
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .node-version
+      - name: Install dependencies
+        run: npm install
+      - name: Build
+        run: npm run build
+      - name: Test
+        run: npm run test
+
+  tag:
+    needs: [build-and-test]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Get latest tag
+        id: latest_tag
+        uses: anothrNick/github-tag-action@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TAG_PREFIX: ''
+          DEFAULT_BUMP: patch
+          DRY_RUN: true
+      - name: Replace version in package.json
+        run: |
+          echo "Bumping version to ${{ steps.latest_tag.outputs.tag }}"
+          jq '.version = "${{ steps.latest_tag.outputs.tag }}"' package.json > tmp.json
+          mv tmp.json package.json
+      - name: Bump version and push tag
+        uses: anothrNick/github-tag-action@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TAG_PREFIX: ''
+          DEFAULT_BUMP: patch
+
+  publish:
+    needs: [tag]
+    runs-on: ubuntu-latest
+    concurrency: publish
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Get latest tag
+        id: get_latest_tag
+        uses: actions-ecosystem/action-get-latest-tag@v1
+      # TODO: Uncomment when ready to publish
+      # - name: Publish to npm
+      #   run: npm publish
+
+  notify:
+    needs: [tag]
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - repo: horology-web
+    steps:
+      - uses: juztcode/repo-ditpatch-action@v1
+        continue-on-error: true
+        with:
+          event-type: core-published
+          token: ${{ secrets.REPO_ACCESS_TOKEN }}
+          repository: pilgrimagesoftware/${{ matrix.repo }}
