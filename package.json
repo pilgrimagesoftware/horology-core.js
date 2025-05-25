@@ -2,9 +2,21 @@
   "name": "horology-core",
   "version": "0.0.1",
   "description": "Date/time calculations",
-  "main": "horology.js",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/horology-core.umd.js",
+  "module": "./dist/horology-core.es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/horology-core.es.js",
+      "require": "./dist/horology-core.umd.js"
+    }
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "repository": {
     "type": "git",
@@ -17,5 +29,8 @@
     "calculation"
   ],
   "author": "Paul Schifferer",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "vite": "^6.3.5"
+  }
 }
