@@ -69,7 +69,7 @@ jobs:
       #     TAG_PREFIX: ''
       #     DEFAULT_BUMP: patch
 
-  publish:
+  publish-npm:
     needs: [tag]
     runs-on: ubuntu-latest
     concurrency: publish
@@ -77,11 +77,35 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - name: Publish to npm
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.x'
+          registry-url: 'https://registry.npmjs.org'
+      - name: Publish to NPM
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
               npm publish --access public --provenance
+
+  publish-github:
+    needs: [tag]
+    runs-on: ubuntu-latest
+    concurrency: publish
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.x'
+          registry-url: 'https://npm.pkg.github.com'
+      - run: |
+              npm ci
+      - name: Publish to GitHub
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+              npm publish
 
   notify:
     needs: [tag]
