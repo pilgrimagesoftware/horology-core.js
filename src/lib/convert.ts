@@ -1,6 +1,17 @@
-import type { ConversionUnit } from './types';
+import type { ConversionResult, ConversionUnit } from './types';
 
-export function convert(value: number, fromUnit: ConversionUnit, toUnit: ConversionUnit): number {
+/**
+ * Converts a value from one unit to another.
+ * @param value
+ * @param fromUnit
+ * @param toUnit
+ * @returns
+ */
+export function convert(value: number, fromUnit: ConversionUnit, toUnit: ConversionUnit): ConversionResult {
     // TODO
-    return 0;
+    return {
+        value: 0,
+        unit: toUnit,
+        approximate: false
+    };
 }
