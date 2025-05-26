@@ -67,9 +67,8 @@ jobs:
       - name: Get latest tag
         id: get_latest_tag
         uses: actions-ecosystem/action-get-latest-tag@v1
-      # TODO: Uncomment when ready to publish
-      # - name: Publish to npm
-      #   run: npm publish
+      - name: Publish to npm
+        run: npm publish
 
   notify:
     needs: [tag]
