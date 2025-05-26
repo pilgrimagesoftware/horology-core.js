@@ -1,4 +1,6 @@
+// User-defined types for date adjustments and conversion units
 
+//
 interface Adjustments {
 	years: number;
 	months: number;
@@ -8,6 +10,7 @@ interface Adjustments {
 	seconds: number;
 }
 
+// Enum for conversion units
 enum ConversionUnit {
 	Years = 'years',
 	Months = 'months',
@@ -17,4 +20,11 @@ enum ConversionUnit {
 	Seconds = 'seconds',
 }
 
-export type { Adjustments, ConversionUnit };
+//
+enum Mode {
+	DateAndTime = 'dateAndTime',
+	TimeOnly = 'timeOnly',
+	DateOnly = 'dateOnly',
+}
+
+export type { Adjustments, ConversionUnit, Mode };
