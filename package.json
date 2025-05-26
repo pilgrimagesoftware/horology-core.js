@@ -1,5 +1,5 @@
 {
-  "name": "horology-core",
+  "name": "@pilgrimagesoftware/horology-core",
   "version": "0.0.2",
   "description": "Date/time calculations",
   "files": [
