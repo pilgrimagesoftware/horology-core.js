@@ -2,13 +2,26 @@
   "name": "@pilgrimagesoftware/horology-core",
   "version": "0.0.7",
   "description": "Date/time calculations",
+  "author": "Paul Schifferer",
+  "license": "MIT",
+  "private": false,
   "main": "./dist/horology-core.umd.js",
   "module": "./dist/horology-core.es.js",
+  "types": "./dist/horology-core.d.ts",
+  "source": "src/main.js",
+  "files": [
+    "dist"
+  ],
   "exports": {
     ".": {
+      "types": "./dist/horology-core.d.ts",
       "import": "./dist/horology-core.es.js",
       "require": "./dist/horology-core.umd.js"
     }
+  },
+  "engines": {
+    "node": ">=22.0.0",
+    "npm": ">=10.0.0"
   },
   "scripts": {
     "dev": "vite",
@@ -26,8 +39,6 @@
     "date",
     "calculation"
   ],
-  "author": "Paul Schifferer",
-  "license": "MIT",
   "devDependencies": {
     "vite": "^6.3.5",
     "vitest": "^3.1.4"

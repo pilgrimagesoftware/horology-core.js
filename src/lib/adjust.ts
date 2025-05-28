@@ -1,7 +1,7 @@
 import type { Adjustments } from './types';
 
 /**
- * Adjusts a date by a set of time adjustments.
+ * Adjusts a date by a set of date/time adjustments.
  * @param date The date to adjust.
  * @param adjustments The adjustments to apply.
  * @returns The adjusted date.
