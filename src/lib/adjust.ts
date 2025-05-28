@@ -1,5 +1,11 @@
 import type { Adjustments } from './types';
 
+/**
+ * Adjusts a date by a set of time adjustments.
+ * @param date The date to adjust.
+ * @param adjustments The adjustments to apply.
+ * @returns The adjusted date.
+ */
 export function adjust(date: Date, adjustments: Adjustments) {
   const adjustedDate = new Date();
 
