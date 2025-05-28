@@ -1,6 +1,6 @@
 {
   "name": "@pilgrimagesoftware/horology-core",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "Date/time calculations",
   "author": "Paul Schifferer",
   "license": "MIT",
