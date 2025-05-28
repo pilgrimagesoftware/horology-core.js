@@ -1,1 +1,7 @@
 .github/
+.node-version
+index.html
+vite.config.js
+README.md
+SECURITY.md
+src/
