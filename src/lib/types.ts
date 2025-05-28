@@ -1,6 +1,8 @@
 // User-defined types for date adjustments and conversion units
 
-/** Represents adjustments to be made to a date, or the difference between two dates */
+/**
+ * Represents adjustments to be made to a date, or the difference between two dates
+ */
 interface Adjustments {
 	years: number;
 	months: number;
@@ -10,7 +12,9 @@ interface Adjustments {
 	seconds: number;
 }
 
-/** Enum for conversion units */
+/**
+ * Enum for conversion units
+ */
 enum ConversionUnit {
 	Years = 'years',
 	Months = 'months',
@@ -20,14 +24,18 @@ enum ConversionUnit {
 	Seconds = 'seconds',
 }
 
-/** Represents the result of a conversion operation */
+/**
+ * Represents the result of a conversion operation
+ */
 interface ConversionResult {
 	value: number;
 	unit: ConversionUnit;
 	approximate: boolean;
 }
 
-/** Enum for while parts of the date will be calculated or displayed */
+/**
+ * Enum for while parts of the date will be calculated or displayed
+ */
 enum Mode {
 	DateAndTime = 'dateAndTime',
 	TimeOnly = 'timeOnly',
