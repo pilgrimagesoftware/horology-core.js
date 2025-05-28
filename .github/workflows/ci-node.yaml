@@ -51,25 +51,6 @@ jobs:
               # git add package.json package-lock.json
               # git commit -m "Bump version to $(node -p "require('./package.json').version")"
               git push origin develop --tags
-      # - name: Get latest tag
-      #   id: latest_tag
-      #   uses: anothrNick/github-tag-action@v1
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      #     TAG_PREFIX: 'v'
-      #     DEFAULT_BUMP: patch
-      #     DRY_RUN: true
-      # - name: Replace version in package.json
-      #   run: |
-      #         echo "Bumping version to ${{ steps.latest_tag.outputs.tag }}"
-      #         jq '.version = "${{ steps.latest_tag.outputs.tag }}"' package.json > tmp.json
-      #         mv tmp.json package.json
-      # - name: Bump version and push tag
-      #   uses: anothrNick/github-tag-action@v1
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      #     TAG_PREFIX: ''
-      #     DEFAULT_BUMP: patch
 
   publish-npm:
     needs: [tag]
