@@ -2,9 +2,6 @@
   "name": "@pilgrimagesoftware/horology-core",
   "version": "0.0.7",
   "description": "Date/time calculations",
-  "files": [
-    "dist"
-  ],
   "main": "./dist/horology-core.umd.js",
   "module": "./dist/horology-core.es.js",
   "exports": {
