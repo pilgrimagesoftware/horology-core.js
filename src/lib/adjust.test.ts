@@ -9,7 +9,7 @@ describe('adjust', () => {
     const adjustedDate = adjust(date, adjustments);
     expect(adjustedDate.getFullYear()).toEqual(2021);
     expect(adjustedDate.getMonth()).toEqual(2);
-    expect(adjustedDate.getDay()).toEqual(6);
+    expect(adjustedDate.getDate()).toEqual(4);
     expect(adjustedDate.getHours()).toEqual(20);
     expect(adjustedDate.getMinutes()).toEqual(5);
     expect(adjustedDate.getSeconds()).toEqual(6);
