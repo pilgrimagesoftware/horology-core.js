@@ -1,4 +1,4 @@
-import { Adjustments } from "./types";
+import type { Adjustments } from "./types/adjustment";
 
 /**
  * Compares two dates and returns the difference in years, months, days, hours, minutes, and seconds.

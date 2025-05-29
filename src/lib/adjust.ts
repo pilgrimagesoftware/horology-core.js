@@ -1,4 +1,4 @@
-import type { Adjustments } from './types';
+import type { Adjustments } from './types/adjustment';
 
 /**
  * Adjusts a date by a set of date/time adjustments.

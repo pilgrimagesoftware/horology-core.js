@@ -1,4 +1,4 @@
-import type { ConversionResult, ConversionUnit } from './types';
+import type { ConversionResult, ConversionUnit } from './types/conversion';
 
 /**
  * Converts a value from one unit to another.
