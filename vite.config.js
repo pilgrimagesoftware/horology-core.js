@@ -1,12 +1,10 @@
-const path = require('path')
-const { defineConfig } = require('vite')
+import { defineConfig } from 'vite';
 
-module.exports = defineConfig({
+export default defineConfig({
   build: {
     lib: {
-      entry: path.resolve(__dirname, 'src/main.js'),
+      entry: 'src/index.ts',
       name: 'horology-core',
-      fileName: (format) => `horology-core.${format}.js`
     }
   }
 });

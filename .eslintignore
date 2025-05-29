@@ -1,0 +1,4 @@
+examples/
+templates/
+lib/
+.eslintrc.*
