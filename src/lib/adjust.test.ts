@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { adjust } from './adjust';
-import type { Adjustments } from './types';
+import type { Adjustments } from './types/adjustment';
 
 describe('adjust', () => {
   it('should adjust the date by the given adjustments', () => {
