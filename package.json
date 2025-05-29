@@ -2,50 +2,77 @@
   "name": "@pilgrimagesoftware/horology-core",
   "version": "0.0.9",
   "description": "Date/time calculations",
-  "author": "Paul Schifferer",
   "license": "MIT",
-  "private": false,
-  "main": "./dist/horology-core.umd.js",
-  "module": "./dist/horology-core.es.js",
-  "types": "./dist/horology-core.d.ts",
-  "source": "src/main.js",
-  "files": [
-    "dist"
-  ],
-  "exports": {
-    ".": {
-      "types": "./dist/horology-core.d.ts",
-      "import": "./dist/horology-core.es.js",
-      "require": "./dist/horology-core.umd.js"
-    }
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pilgrimagesoftware/horology-core.js.git"
   },
+  "author": {
+    "name": "Paul Schifferer",
+    "email": "paul@schifferers.net",
+    "url": "https://pilgrimagesoftware.com"
+  },
+  "homepage": "https://github.com/pilgrimagesoftware/horology-core.js#readme",
+  "bugs": {
+    "url": "https://github.com/pilgrimagesoftware/horology-core.js/issues"
+  },
+  "keywords": [
+    "javascript",
+    "typescript",
+    "time",
+    "date",
+    "calculation",
+    "comparison",
+    "conversion"
+  ],
+  "private": false,
+  "type": "module",
   "engines": {
     "node": ">=22.0.0",
     "npm": ">=10.0.0"
   },
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview",
-    "test": "vitest"
+    "build": "tsc && vite build",
+    "test": "vitest --run typecheck",
+    "format": "prettier --write .",
+    "prepare": "npm run build && npm run test && npm run lint && npm run format",
+    "lint:src": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "lint:src_fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
+    "lint:packagejson": "npx npm-package-json-lint .",
+    "lint": "npm run lint:src && npm run lint:packagejson",
+    "docs": "docsify serve docs"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/pilgrimagesoftware/horology-core.js.git"
-  },
-  "keywords": [
-    "javascript",
-    "time",
-    "date",
-    "calculation"
-  ],
   "devDependencies": {
-    "vite": "^6.3.5",
-    "vitest": "^3.1.4"
+    "typescript": "5.8.3",
+    "vite": "6.3.5",
+    "vitest": "3.1.4",
+    "docsify-cli": "4.4.4",
+    "eslint": "9.27.0",
+    "eslint-plugin-prettier": "5.4.0",
+    "npm-package-json-lint": "8.0.0",
+    "prettier": "3.5.3"
   },
   "publishConfig": {
     "access": "public",
     "provenance": true,
     "typeSafety": true
+  },
+  "eslintConfig": {
+    "extends": "eslint:recommended",
+    "rules": {
+      "no-console": "warn"
+    }
+  },
+  "jest": {
+    "testEnvironment": "node"
+  },
+  "npmpackagejsonlint": {
+    "rules": {
+      "no-caret-version-dependencies": "error",
+      "no-caret-version-devDependencies": "error",
+      "no-tilde-version-dependencies": "error",
+      "no-tilde-version-devDependencies": "error"
+    }
   }
 }
