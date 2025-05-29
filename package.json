@@ -36,7 +36,6 @@
     "build": "tsc && vite build",
     "test": "vitest --run typecheck",
     "format": "prettier --write .",
-    "prepare": "npm run build && npm run test && npm run lint && npm run format",
     "lint:src": "eslint . --ext .js,.jsx,.ts,.tsx",
     "lint:src_fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
     "lint:packagejson": "npx npm-package-json-lint .",
