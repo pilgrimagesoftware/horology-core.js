@@ -4,7 +4,7 @@ import { defineConfig } from 'vitest/config';
 export default defineConfig({
   test: {
     // Ava uses `*.test.*` so we use a different pattern
-    include: ['src/**/*.{test}.{ts,tsx}'],
+    include: ['src/**/*.test.{ts,tsx}'],
     includeSource: ['src/**/*.{ts,tsx}'],
     setupFiles: ['./vitest.setup.mts'],
   },
