@@ -48,7 +48,7 @@
     "vitest": "3.1.4",
     "docsify-cli": "4.4.4",
     "eslint": "9.27.0",
-    "eslint-plugin-prettier": "5.4.0",
+    "eslint-plugin-prettier": "5.4.1",
     "npm-package-json-lint": "8.0.0",
     "prettier": "3.5.3"
   },
