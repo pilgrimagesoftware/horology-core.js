@@ -45,7 +45,7 @@
   "devDependencies": {
     "typescript": "5.8.3",
     "vite": "7.1.7",
-    "vitest": "3.2.4",
+    "vitest": "4.0.7",
     "docsify-cli": "4.4.4",
     "eslint": "9.30.0",
     "eslint-plugin-prettier": "5.5.4",
