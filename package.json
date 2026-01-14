@@ -43,7 +43,7 @@
     "docs": "docsify serve docs"
   },
   "devDependencies": {
-    "typescript": "5.8.3",
+    "typescript": "5.9.3",
     "vite": "7.1.7",
     "vitest": "3.2.4",
     "docsify-cli": "4.4.4",
